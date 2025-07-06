@@ -1,0 +1,537 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[aodsor,preprint]{imsart}
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[authoryear,round]{natbib}
+\usepackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+%\usepackage{ngerman}
+
+
+% settings
+%\pubyear{2005}
+%\volume{0}
+%\issue{0}
+%\firstpage{1}
+%\lastpage{8}
+%\arxiv{arXiv:0000.0000}
+
+
+\numberwithin{equation}{section}
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem*{remark*}{Remark}
+
+% customize math operators
+\newcommand{\E}{{\mathbb E}}
+
+
+\begin{document}
+
+\begin{frontmatter}
+\title{A Sample Document}
+\runtitle{A Sample Document}
+
+\begin{aug}
+\author{\fnms{First} \snm{Author}\ead[label=e1]{first@somewhere.com}},
+\author{\fnms{Second} \snm{Author}\ead[label=e2]{second@somewhere.com}}
+\and
+\author{\fnms{Third} \snm{Author}
+\ead[label=e3]{third@somewhere.com}}
+
+
+\runauthor{F. Author et al.}
+
+\affiliation{University of Vienna}
+
+\end{aug}
+
+\begin{abstract}
+The abstract should summarize the contents of the paper, including research questions, approach and results.
+It should be clear, descriptive, self-explanatory and not longer
+than 200 words. Please avoid using math formulas as much as possible.
+
+This is a sample input file.  Comparing it with the output it
+generates can show you how to produce a simple document of
+your own.
+\end{abstract}
+
+\begin{keyword}[class=MSC]
+\kwd[Primary ]{60K35}
+\kwd{60K35}
+\kwd[; secondary ]{60K35}
+\end{keyword}
+
+\begin{keyword}
+\kwd{sample}
+\kwd{\LaTeXe}
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+
+
+The following notes are a mix of own writing and copy and paste of blogs and other notes.\\
+\\
+There are many places where you can download \LaTeX\ for free, irrespective of the platform you operate on. You can use any \TeX-editor. Personally, I use \textmd{WinEdt} (under Windows), but many more are fine, like \TeX nicCenter and \TeX Maker, which are also common choices. I can't recommend WYSIWYG-editors like Lyx, though, because often ``what you see is'' not really ``what you get'' or at least not what you want, just as under MS~Word. But this is again just a personal preference, some people really like these editors. On Mac, you can use \TeX Shop, but \TeX works is also fine.
+
+Once you have successfully installed your \TeX-editor, make sure that all the files of this template are in one and the same folder. This will be your working directory. If you have set it up correctly, then you should immediately be able to produce a pdf output from the template by hitting ``Typeset''. How to do this may vary from one editor to the other. I usually use the short-cut keys because I typeset \emph{a lot} while writing my \TeX-code. I strongly advice you to do the same, because then it will be much easier to track down possible syntax errors you made, as you only need to check the last few lines of code you just wrote. Even though \LaTeX\ tries to tell you the exact line on which an error occurred, de-bugging can still be a bit annoying. So if you feel lost, be patient, undo your last changes, delete all .aux files that were produced during typesetting and rerun everything. You can use this introduction to \TeX\ also as your template for your own paper by simply erasing all the text and filling on your own. Now here is how it all works in some more detail:
+
+\medskip
+
+The ends  of words and sentences are marked
+  by   spaces. It  doesn't matter how many
+spaces    you type; one is as good as 100.  The
+end of   a line counts as a space.
+
+One   or more   blank lines denote the  end
+of  a paragraph.
+
+Since any number of consecutive spaces are treated like a single
+one, the formatting of the input file makes no difference to
+      \TeX,         % The \TeX command generates the TeX logo.
+but it makes a difference to you.
+When you use
+      \LaTeX,       % The \LaTeX command generates the LaTeX logo.
+making your input file as easy to read as possible
+will be a great help as you write your document and when you
+change it.  This sample file shows how you can add comments to
+your own input file.
+
+Because printing is different from typewriting, there are a
+number of things that you have to do differently when preparing
+an input file than if you were just typing the document directly.
+Quotation marks like
+       ``this''
+have to be handled specially, as do quotes within quotes:
+       ``\,`this'                  % \, separates the double and single quote.
+    is what I want,
+    not  `that.'''
+
+Dashes come in three sizes: a hyphen, %an intra-word dash,
+a medium dash for number ranges like
+       1--2,
+and a punctuation dash in place of a comma, semicolon, colon or parentheses
+       ---like
+this.
+
+
+\TeX\ interprets some common characters as commands, so you must type
+special commands to generate them.  These characters include the
+following:
+       \$ \& \% \# \{ \} and~\textbackslash.
+
+In printing, text is emphasized by using an
+       {\em italic\/}  % The \/ command produces the tiny extra space that
+               % should be added between a slanted and a following
+               % unslanted letter.
+type style.
+
+\begin{em}
+   A long segment of text can also be emphasized in this way.  Text within
+   such a segment given additional emphasis
+      with\/ {\em Roman}
+   type.  Italic type loses its ability to emphasize and becomes simply
+   distracting when used excessively.
+\end{em}
+Alternatively, you can use \textbf{bold face} letters. But use it wisely!
+
+It is sometimes necessary to prevent \TeX\ from breaking a line where
+it might otherwise do so.  This may be at a space, as between the
+``Mr.'' and ``Jones'' in
+       ``Mr.~Jones'',        % ~ produces an unbreakable interword space.
+or within a word---especially when the word is a symbol like
+       \mbox{\em itemnum\/}
+that makes little sense when hyphenated across
+       lines.
+
+\TeX\ is really good at typesetting mathematical formulas like
+       $x-3y = 7$
+       $$x-3y = 7 $$
+or
+       $a_{1} > x^{2n} / y^{2n} > x'$.
+Remember that a letter like
+       $x$        % $ ... $  takes you to math-mode
+is a formula when it denotes a mathematical symbol, and should
+be treated as one.
+
+
+\section{Notes}
+
+Footnotes\footnote{This is an example of a footnote.}
+pose no problem\footnote{And another one}. Footnotes are considered though as bad style of writing/ill-conceived in mathematics and should be avoided.
+
+\section{Displayed text}
+
+Text is displayed by indenting it from the left margin.
+Quotations are commonly displayed.  There are short quotations
+\begin{quote}
+   This is a short quotation.  It consists of a
+   single paragraph of text.  There is no paragraph
+   indentation.
+\end{quote}
+and longer ones.
+\begin{quotation}
+   This is a longer quotation.  It consists of two paragraphs
+   of text.  The beginning of each paragraph is indicated
+   by an extra indentation.
+
+   This is the second paragraph of the quotation.  It is just
+   as dull as the first paragraph.
+\end{quotation}
+Another frequently displayed structure is a list.
+The following is an example of an {\em itemized} list,
+two levels deep.
+\begin{itemize}
+\item  This is the first item of an itemized list.  Each item
+      in the list is marked with a ``tick.''  The document
+      style determines what kind of tick mark is used.
+\item  This is the second item of the list.  It contains another
+      list nested inside it.  The three inner lists are an {\em itemized}
+      list.
+    \begin{itemize}
+       \item This is the first item of the inner list that
+            is nested within the itemized list.
+          \item This is the second item of the inner list.  \LaTeX\
+            allows you to nest lists deeper than you really should.
+      \end{itemize}
+      This is the rest of the second item of the outer list.  It
+      is no more interesting than any other part of the item.
+   \item  This is the third item of the list.
+\end{itemize}
+
+
+The following is an example of an {\em enumerated} list, two levels deep.
+\begin{enumerate}
+\item  This is the first item of an enumerated list.  Each item
+      in the list is marked with a ``tick.''  The document
+      style determines what kind of tick mark is used.
+\item  This is the second item of the list.  It contains another
+      list nested inside it.  The three inner lists are an {\em enumerated}
+      list.
+    \begin{enumerate}
+       \item This is the first item of an enumerated list that
+            is nested within the enumerated list.
+          \item This is the second item of the inner list.  \LaTeX\
+            allows you to nest lists deeper than you really should.
+      \end{enumerate}
+      This is the rest of the second item of the outer list.  It
+      is no more interesting than any other part of the item.
+   \item  This is the third item of the list.
+\end{enumerate}
+
+
+The following is an example of a {\em description} list.
+\begin{description}
+\item[Cow] Highly intelligent animal that can produce milk out of grass.
+\item[Horse] Less intelligent animal renowned for its legs.
+\item[Human being] Not so intelligent animal convinced it can think.
+\end{description}
+
+
+
+Mathematical formulas may also be displayed.  A displayed formula is
+one-line long:
+$$
+x_1^2 + y^{2} = z_{i}^{2};
+$$
+multiline formulas require special formatting
+instructions (see below).
+Don't start a paragraph with a displayed equation, nor make
+one a paragraph by itself.
+
+It is often useful to use special fonts in math mode. For instance, instead of a simple $E(X)$ to denote the expected value of a random variable $X$, we may prefer to write $\mathbb E(X)$. This is the math-blackboard-bold font $$\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}.$$ There is also the math-caligraphic $$\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ},$$
+and the math-frakture font
+$$\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}.$$
+Also very important, of course, are the greek lower case letters
+$$
+\alpha\beta\gamma\delta\epsilon\zeta\eta\theta\iota\kappa\lambda\mu\nu\xi o\pi\rho\sigma\tau\upsilon\phi\chi\psi\omega,
+$$
+and the corresponding upper case letters
+$$
+AB\Gamma\Delta EZH\Theta IK\Lambda MN\Xi O\Pi P\Sigma T\Upsilon\Phi X\Psi\Omega.
+$$
+
+If we want to reference an equation from some other point in the text, then we must use the equation-environment in order to give it a number and to define a label for the display we want to reference.
+\begin{equation} \label{eq:NormalDensity}
+f_{\mu,\sigma^2}(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac12 \frac{(x-\mu)^2}{\sigma^2}}
+\end{equation}
+We can refer to this equation using the \textbackslash\emph{eqref}\{\} command \eqref{eq:NormalDensity}. If we want to clearly separate two paragraphs from each other, the \textbackslash\emph{medskip} and \textbackslash\emph{bigskip} commands are useful.
+
+\medskip
+
+Example of a lemma, a theorem and a corollary:
+
+
+\begin{lemma}
+There are conjectures. For example, the Riemann-hypothesis.
+\end{lemma}
+\begin{proof}
+Check Wikipedia.
+\end{proof}
+
+\begin{thm}\label{thm:Conjectures}
+All conjectures are interesting, but some conjectures are more
+interesting than others.
+\end{thm}
+
+\begin{proof}
+Obvious.
+\end{proof}
+
+\begin{corollary}[The Riemann-Corollary]
+The Riemann-hypothesis is interesting.
+\end{corollary}
+
+\begin{proof}
+Use Theorem~\ref{thm:Conjectures}.
+\end{proof}
+
+\bigskip
+
+Longer mathematical computations are best put in an align-environment:
+\begin{align*}
+I_{\theta,n}(q) &= \E\left[ \left(\frac{d}{d\theta} \sum_{i=1}^n \log q_\theta(Z_i)\right)^2\right]
+=
+\E\left[ \left( \sum_{i=1}^n \frac{d}{d\theta}\log q_\theta(Z_i)\right)^2\right] \\
+&=
+\E\left[ \left( \sum_{i=1}^n \frac{\frac{d}{d\theta}q_\theta(Z_i)}{q_\theta(Z_i)}\right)^2\right]
+=
+\sum_{i,j=1}^n \E\left[ \frac{\frac{d}{d\theta}q_\theta(Z_i)}{q_\theta(Z_i)} \cdot \frac{\frac{d}{d\theta}q_\theta(Z_j)}{q_\theta(Z_j)}\right]\\
+&=
+\sum_{i=1}^n \underbrace{\E\left[ \left(\frac{\frac{d}{d\theta}q_\theta(Z_i)}{q_\theta(Z_i)}\right)^2\right]}_{=:I_\theta(q)} + \sum_{i\neq j}^n \E\left[ \frac{\frac{d}{d\theta}q_\theta(Z_i)}{q_\theta(Z_i)} \cdot \frac{\frac{d}{d\theta}q_\theta(Z_j)}{q_\theta(Z_j)}\right]\\
+&= n I_\theta(q) + \sum_{i\neq j}^n \E\left[ \frac{\frac{d}{d\theta}q_\theta(Z_i)}{q_\theta(Z_i)}\right] \E\left[ \frac{\frac{d}{d\theta}q_\theta(Z_j)}{q_\theta(Z_j)}\right],
+\end{align*}
+Here, we have made use of \textbackslash\emph{newcommand}\{\textbackslash\emph{E}\}\{\textbackslash\emph{mathbb E}\} in the preamble of the document to define a new operator \textbackslash\emph{E} we can use only in math mode, that is, between \$ signs or in an equation or align environment, because it uses the math-blackboard-bold font. We can also refer to single lines of an align-environment if we remove the * and put label names or \textbackslash\emph{notag} commands in the respective lines, as in
+\begin{align}
+I_{\theta,n}(q) &= \E\left[ \left(\frac{d}{d\theta} \sum_{i=1}^n \log q_\theta(Z_i)\right)^2\right]
+=
+\E\left[ \left( \sum_{i=1}^n \frac{d}{d\theta}\log q_\theta(Z_i)\right)^2\right] \notag\\
+&=
+\E\left[ \left( \sum_{i=1}^n \frac{\frac{d}{d\theta}q_\theta(Z_i)}{q_\theta(Z_i)}\right)^2\right]
+=
+\sum_{i,j=1}^n \E\left[ \frac{\frac{d}{d\theta}q_\theta(Z_i)}{q_\theta(Z_i)} \cdot \frac{\frac{d}{d\theta}q_\theta(Z_j)}{q_\theta(Z_j)}\right]\label{eq:Fisher}\\
+&=
+\sum_{i=1}^n \underbrace{\E\left[ \left(\frac{\frac{d}{d\theta}q_\theta(Z_i)}{q_\theta(Z_i)}\right)^2\right]}_{=:I_\theta(q)} + \sum_{i\neq j}^n \E\left[ \frac{\frac{d}{d\theta}q_\theta(Z_i)}{q_\theta(Z_i)} \cdot \frac{\frac{d}{d\theta}q_\theta(Z_j)}{q_\theta(Z_j)}\right]\notag\\
+&= n I_\theta(q) + \sum_{i\neq j}^n \E\left[ \frac{\frac{d}{d\theta}q_\theta(Z_i)}{q_\theta(Z_i)}\right] \E\left[ \frac{\frac{d}{d\theta}q_\theta(Z_j)}{q_\theta(Z_j)}\right],\notag
+\end{align}
+and refer to it using \textbackslash\emph{eqref\{\}} again, i.e., \eqref{eq:Fisher}.
+For further mathematical notation see, for instance, \url{https://de.wikipedia.org/wiki/Hilfe:TeX}.
+
+
+\section{Scientific style of writing}
+\phantom{XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
+
+{\bf Point of view}\\
+Usually, personal pronouns are avoided as much as possible: \textit{The aim of the paper... } instead of \textit{My aim is to ... }. If necessary, plural is often used, even in case of single authorship: \textit{Next, we discuss ... } vs. \textit{Next, I discuss ... }. But this is \textit{not} a general rule and a matter of personal taste, some single authors do use the singular form.\\
+\\
+{\bf Being clear}\\
+Research findings should be stated in clear simple English in a scientific report. Meandering, descriptive, decorative text is inappropriate. It should be impossible to misinterpret your findings.\\
+\\
+{\bf Being succinct}\\
+Scientific writing needs to be brief - in depth concepts should not be made more complicated and confusing. Redundant phrases should be avoided.\\
+\\
+{\bf Being precise}\\
+Choose your words carefully when you are writing science. In theory, someone who reads your scientific report should be able to repeat your experiments. Also, your reader should know exactly how your results relate to each other and to the results of others. The use of vague adjectives in scientific writing is inappropriate - you need to convey your exact meaning. For example, is your large increase a ten-fold increase or a ten thousand-fold increase? Say exactly what you mean, avoiding any ambiguity.\\
+\\
+{\bf Being logical}\\
+Every argument in your scientific report should be logical. An argument is a final claim that is made based on at least one other claim. The final claim is known as the ‘conclusion’, and the claims that are used to support the conclusion are known as ‘premises’.\\
+\\
+In a sound argument:
+
+\begin{itemize}
+  \item the premises should be true
+  \item the conclusion should be assured, or very likely, based on the premises
+\end{itemize}
+
+
+{\bf Who is your audience?}\\
+Remember who will read your work, and why they are reading it. Will your reader understand your explanations? Your tutor/supervisor will often understand the work already. Do your explanations demonstrate that YOU understand everything?\\
+\\
+{\bf Learn from others}\\
+Draw inspiration from journal articles which you or your supervisor/tutor feel are well presented. Read through the articles that you have chosen, and ask yourself the following questions:
+
+\begin{itemize}
+  \item What have the authors included in the abstract/summary?
+  \item How much space is dedicated to each of the different sections?
+  \item How frequently are references used? What are the references used for?
+  \item Which techniques does the author use to keep different sections of the article brief?
+  \item How do the authors introduce their articles? Do they start broadly and then focus on their topic? Is any knowledge assumed?
+  \item How are the methods described? How much detail is provided?
+  \item How is the data presented? Is the data described in the text? How frequently are figures referred to in the text? How have figures and tables been labelled? Which kinds of figures and tables are the easiest to read? Which kinds of figures show the results most effectively?
+  \item How do the authors reach conclusions? Do they refer to the work of other authors to provide support for their conclusions? Are any problems with the experiments discussed? What techniques do authors use to explain results that don’t fit?
+\end{itemize}
+
+
+
+\section{Tables and figures}
+Cross reference to a labeled table: As you can see in Table~\ref{tab:example} on
+page~\pageref{tab:example} and also in Table~\ref{parset} on page~\pageref{parset}.
+
+Columns of a table are separated in each line by the \& character. Every row must be ended by the end-of-line character \textbackslash\textbackslash. The options \emph{\{crlrrc\}} define the alignment of each column. This particular choice means that the first and sixth columns are centered (c), the second, fourth and fifth columns are right aligned (r) and the third column is left aligned (l). By using the \emph{\textbackslash multicolumn} command, we can also change the alignment of individual cells.
+
+
+\begin{table*}
+\caption{This is the caption of the table.}
+\label{tab:example}
+\begin{tabular}{crlrrc}
+\hline
+Equil. \\
+Points & \multicolumn{1}{c}{$x$} & \multicolumn{1}{l}{$y$} & \multicolumn{1}{r}{$z$} & \multicolumn{1}{c}{$C$} &
+S \\
+\hline
+$~~L_1$ & $-$2.485252241 & 0.000000000 & 0.017100631 & 8.230711648 & U \\
+$~~L_2$ &    0.000000000 & 0.000000000 & 3.068883732 & 0.000000000 & S \\
+$~~L_3$ &    0.009869059 & 0.000000000 & 4.756386544 & $-$0.000057922 & U \\
+$~~L_4$ &    0.210589855 & 0.000000000 & $-$0.007021459 & 9.440510897 & U \\
+$~~L_5$ &    0.455926604 & 0.000000000 & $-$0.212446624 & 7.586126667 & U \\
+$~~L_6$ &    0.667031314 & 0.000000000 & 0.529879957 & 3.497660052 & U \\
+$~~L_7$ &    2.164386674 & 0.000000000 & $-$0.169308438 & 6.866562449 & U \\
+$~~L_8$ &    0.560414471 & 0.421735658 & $-$0.093667445 & 9.241525367 & U \\
+$~~L_9$ &    0.560414471 & $-$0.421735658 & $-$0.093667445 & 9.241525367 & U
+\\
+$~~L_{10}$ & 1.472523232 & 1.393484549 & $-$0.083801333 & 6.733436505 & U \\
+$~~L_{11}$ & 1.472523232 & $-$1.393484549 & $-$0.083801333 & 6.733436505 & U
+\\ \hline
+\end{tabular}
+\end{table*}
+
+
+\section{Citation of literature, bib-tex and how to include graphics}
+
+
+I highly recommend to use bib-text to generate your citations and list of reference at the end of your paper. The advantage is that you have to enter the information about each reference you want to cite only once into your bib-file (check out the \emph{lit.bib} file included in this template) and then \LaTeX\ and the style-files you are using will do all the formatting for you. Thus, you can keep using one and the same .bib file for all eternity and adjust the formatting only by using different style-files (such as \emph{imsart-nameyear.bst} included with this template).
+
+Moreover, Google-Scholar provides a feature that allows you to directly download the bib-tex entry of the reference you want to use (see Figure~\ref{fig:Billingsley}).\footnote{Check out the \TeX\ code to also learn how to include a picture to your document. Most common formats are supported. You can even include a pdf file as a picture, which I often do when I produce R plots and save them to pdf format. Besides: Some people think footnotes are bad style and should be avoided. Do as you like, but do not excessively use footnotes!}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{Billingsley.png}
+\caption{The citation feature of Google Scholar offers a bib-tex option.}
+\label{fig:Billingsley}
+\end{figure}
+Simply click on the ``-sign under the reference you are interested in. Then you will see something like in figure \ref{fig:citeScholar}.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{citeScholar.png}
+\caption{The citation feature of Google Scholar offers a bib-tex option.}
+\label{fig:citeScholar}
+\end{figure}
+If you now click on \emph{BibTeX} you will arrive at a page with plain text showing you the full bib-tex command you need to include in your .bib file.
+
+\begin{verbatim}
+@book{billingsley2008probability,
+  title={Probability and measure},
+  author={Billingsley, Patrick},
+  year={2008},
+  publisher={John Wiley \& Sons}
+}
+\end{verbatim}
+
+
+
+
+Sometimes you may still want to make minor changes to the bib-entry that was produced by Google-Scholar, such as change the key \emph{billingsley2008probability} that you need to use when citing this reference to something shorter, like \emph{Billingsley08}.
+If your \emph{lit.bib} file contains this entry and you also include the commands
+\begin{verbatim}
+\bibliographystyle{imsart-nameyear}
+\bibliography{lit}{}
+\end{verbatim}
+
+
+at the end of your document, you can now first run latex (Typeset), then run bibtext (in TeXShop choose Typeset/Bibtex) and then run latex again to produce a .bbl file in your working directory. Now you are ready to cite this reference using the \textbackslash\emph{cite\{\}} command like this: \cite{Billingsley08}. If you get ?? at any time without an error message, then run latex $\rightarrow$ bibtex $\rightarrow$ latex again.
+
+Sometimes, you may want to put a reference in parentheses. For example, when you paraphrase some statement from that reference in your own words, then, at the end of that sentence or paragraph, you can put \citep[cf.][]{Abadie14}. Here, cf. stands for the latin \emph{confer} and suggests the reader to consult the mentioned reference for further information.
+If you want to refer to a specific mathematical statement in some reference, you can do the following
+\citep[see][Theorem~2]{Anderson76}.
+
+\begin{table}
+\centering
+\begin{tabular}{lrll}
+\hline
+\multicolumn{2}{l}{\it parameter} & {\it Set 1} & {\it Set 2}\\
+\hline
+$\mu_{x}$           & [h$^{-1}$]  & 0.092       & 0.11          \\
+$K_{x}$             & [g/g DM]     & 0.15        & 0.006         \\
+$\mu_{p}$           & [g/g DM h]  & 0.005       & 0.004         \\
+$K_{p}$             & [g/L]        & 0.0002      & 0.0001        \\
+$K_{i}$             & [g/L]        & 0.1         & 0.1           \\
+$Y_{x/s}$           & [g DM/g]     & 0.45        & 0.47          \\
+$Y_{p/s}$           & [g/g]        & 0.9         & 1.2           \\
+$k_{h}$             & [h$^{-1}$]  & 0.04        & 0.01          \\
+$m_{s}$             & [g/g DM h]  & 0.014       & 0.029         \\
+\hline
+\end{tabular}
+\caption{You can also put the caption below the table. The placement of the table within your document is done automatically by \LaTeX.}\label{parset}
+\end{table}
+
+Rules for citing: Citing with quotation marks is typically {\bf NOT} done. In mathematics, originality (or not) is (should) always (be) clear from the content/context.
+If you include/cite larger parts/excerpts from books, papers, etc., indicate this at the beginning of the corresponding paragraph by stating (for instance):
+Below, we follow \cite{Billingsley08}, Chapter 1. Classical, well-known results (Cauchy-Schwarz inequality, CLT, ... ) are typically mentioned without providing
+a reference. If you (essentially) reproduce a proof, then state this: Below, we reproduce the proof of Kolmogorov, with a few additional remarks and comments on the details. To highlight your own work, it is then useful to indicate the parts/details you produced yourself.
+
+
+\section{Headings}
+
+\subsection{Subsection}
+\label{sec:Sub}
+This is a subsection.
+
+\subsubsection{Subsubsection}
+This is a subsubsection. We can also refer to sections using labels, such as in Subsection~\ref{sec:Sub}.
+
+
+
+\section{Structure of a paper}
+
+Typically, a paper consists of
+\begin{itemize}
+  \item Abstract.
+  \item Introduction, literature review.
+  \item Assumptions, main results, simulations, ... .
+  \item Discussion, comparison.
+  \item Proof.
+  \item Appendix ... .
+\end{itemize}
+
+But depends on the nature of the paper. In mathematical papers, the discussion section is often not necessary and thus not there.
+
+
+\section{How to start and proceed}
+
+The most important thing is to start with your core problem: Main proof, main code, main data analysis, etc. Once this is
+finished, you build your paper around this: Describe your results, problems, corresponding literature, comparisons, etc.
+Usually, if you proceed this way, once you have the core results the paper 'writes itself'. The last thing you do
+is abstract and introduction, \textit{never} start with it.
+
+\section*{Acknowledgements}
+Finally, this is an acknowledgements section with a heading that was produced by the
+$\backslash$section* command. Here you can thank everybody who was not directly involved in doing the research or in writing the paper but still gave valuable comments or feedback. It is customary to thank the anonymous referees for their help to improve the paper.
+
+
+%========= Appendix ==========
+
+\appendix
+
+
+\section{Appendix section}
+\label{sec:app}
+
+More technical parts of your paper or additional graphs and computer code can go into an appendix.
+
+\subsection{Appendix subsection}
+
+Here, everything works as usual, see Appendix~\ref{sec:app}.
+
+
+%====== References ========
+
+
+\bibliographystyle{imsart-nameyear}
+\bibliography{lit}{}
+
+
+\end{document}
